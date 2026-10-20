@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="500" fill="url(#bg2)"/>
+
+  <text x="500" y="45" fill="#ffffff" font-family="-apple-system, sans-serif" font-weight="700" font-size="20" text-anchor="middle">
+    PKI Certificate Issuance Threat Matrix: Unprotected vs CertGuard Pro
+  </text>
+
+  <!-- Left: Vulnerable Architecture -->
+  <rect x="40" y="80" width="430" height="380" rx="10" fill="#131722" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="55" y="95" width="400" height="34" rx="6" fill="#ef4444" fill-opacity="0.2"/>
+  <text x="255" y="118" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Vulnerable: No CAA Records in DNS
+  </text>
+
+  <rect x="55" y="145" width="400" height="60" rx="6" fill="#0d111a" stroke="#233554"/>
+  <text x="70" y="170" fill="#fca5a5" font-family="monospace" font-size="12">dig CAA domain.com &rarr; NOERROR (0 Records)</text>
+  <text x="70" y="190" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11">CA assumes open policy; 100+ CAs can issue</text>
+
+  <rect x="55" y="220" width="400" height="220" rx="6" fill="#1e131d" stroke="#ef4444" stroke-opacity="0.4"/>
+  <text x="70" y="245" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">ROGUE ISSUANCE ATTACK SURFACE:</text>
+  
+  <text x="70" y="275" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Compromised foreign CAs can forge certificates</text>
+  <text x="70" y="305" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; BGP route hijack intercepts HTTP-01 challenges</text>
+  <text x="70" y="335" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Wildcard certs issued to unauthorized third parties</text>
+  <text x="70" y="365" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Zero incident alerts: Domain owner unaware</text>
+  <text x="70" y="415" fill="#ef4444" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">SILENT MAN-IN-THE-MIDDLE TRAFFIC DECRYPTION</text>
+
+  <!-- Right: Hardened Architecture -->
+  <rect x="530" y="80" width="430" height="380" rx="10" fill="#111c24" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="545" y="95" width="400" height="34" rx="6" fill="#10b981" fill-opacity="0.2"/>
+  <text x="745" y="118" fill="#34d399" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Hardened: CertGuard Pro (RFC 8659 / 8657)
+  </text>
+
+  <rect x="545" y="145" width="400" height="60" rx="6" fill="#0d111a" stroke="#233554"/>
+  <text x="560" y="170" fill="#34d399" font-family="monospace" font-size="11">CAA 0 issue "digicert.com; accounturi=..."</text>
+  <text x="560" y="190" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11">Cryptographically signed via DNSSEC</text>
+
+  <rect x="545" y="220" width="400" height="220" rx="6" fill="#0c1f1c" stroke="#10b981" stroke-opacity="0.4"/>
+  <text x="560" y="245" fill="#34d399" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">ZERO-TRUST ISSUANCE GUARANTEE:</text>
+  
+  <text x="560" y="275" fill="#86efac" font-family="-apple-system, sans-serif" font-size="11">&bull; Whitelisted CA: Non-whitelisted CAs abort immediately</text>
+  <text x="560" y="305" fill="#86efac" font-family="-apple-system, sans-serif" font-size="11">&bull; ACME Account URI: Only your account ID can issue</text>
+  <text x="560" y="335" fill="#86efac" font-family="-apple-system, sans-serif" font-size="11">&bull; Validation Method: dns-01 defeats BGP HTTP hijacks</text>
+  <text x="560" y="365" fill="#86efac" font-family="-apple-system, sans-serif" font-size="11">&bull; iodef Alerting: Rogue requests trigger instant SOC email</text>
+  <text x="560" y="415" fill="#10b981" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">100% ISSUANCE LOCKDOWN &bull; CA/B BALLOT 187</text>
+</svg>
